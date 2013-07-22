@@ -5,6 +5,7 @@ S generated files #
 !.openshift
 anahita
 www/*
+!www/assets
 config/development.yaml
 vendor/*
 
