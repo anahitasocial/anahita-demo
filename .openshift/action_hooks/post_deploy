@@ -15,6 +15,7 @@
 	$data_dir = $app_root.'/.openshift';
 	$cmd($init_cmd);
 	$cmd("package:install connect photos topics html todos groups");
+	$cmd("site:configuration --new-secret");
 	//install apps
 	$cmd("db:migrate:up");		
 ?>
