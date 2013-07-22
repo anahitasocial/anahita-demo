@@ -11,13 +11,10 @@
 	$cmd = function($cmd) use($app_root) {
 		passthru("cd $app_root && php $app_root/vendor/bin/anahita $cmd");
 	};
-	$init_cmd = "site:init -n --database-name=$database --database-user=$user --database-password=$password --database-port=$port --database-host=$host";
+	$init_cmd = "site:init -n --database-prefix=demo --database-dump=$app_root/data/data.sql --database-name=$database --database-user=$user --database-password=$password --database-port=$port --database-host=$host";
 	$data_dir = $app_root.'/.openshift';
 	$cmd($init_cmd);
-	if ( file_exists($data_dir.'/apps.txt') ) {
-		$apps = file_get_contents($data_dir.'/apps.txt');
-		$cmd("package:install $apps");
-	}	
+	$cmd("package:install connect photos topics html todos groups");
 	//install apps
 	$cmd("db:migrate:up");		
 ?>
