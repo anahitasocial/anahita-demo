@@ -8,7 +8,7 @@
     ))
     ->setCode(function ( $input,  $output) use($console) {
     	$data = COMPOSER_ROOT.'/data/data.sql';
-    	$console->runCommand("site:init --database-dump=$data --drop-database");
+    	$console->runCommand("site:init --database-dump=$data --drop-database --database-prefix=demo");    	
     })
     ;
 
